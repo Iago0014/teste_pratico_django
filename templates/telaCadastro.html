@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Lucida Sans';
+            background-color: rgb(46, 46, 46);
+            
+        }
+        #login .container #login-row #login-column #login-box {
+            margin-top: 90px;
+            max-width: 600px;
+            height: 700px;
+            border: 1px solid #9C9C9C;
+            background-color: #EAEAEA;
+        }
+        #login .container #login-row #login-column #login-box #login-form {
+            padding: 45px;
+        }
+        #login .container #login-row #login-column #login-box #login-form #register-link {
+            margin-top: 45px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+<body onload="setarNome()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href='#'>Cadastrar</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/cadastrados/">Cadastrados</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav> 
+    
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="submit" method="post">{% csrf_token %}
+                            <h3 class="text-center" class="text-dark">Formulário de cadastro</h3>
+                            <div class="form-group" hidden>
+                                <input type="number" name="id_cliente" id="username" value="{{ id_nome }}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Nome:</label><br>
+                                <input type="text" name="nomeC" id="username" value="{{ nomeCons }}" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Sobrenome:</label><br>
+                                <input type="text" name="sobrenomeC" id="username" value="{{ sobreNo }}" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Idade:</label><br>
+                                <input type="text" name="idadeC" id="username" value="{{ idadeCl }}" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Data de nascimento:</label><br>
+                                <input type="text" name="dataC" id="username" value="{{ dataNas }}" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">E-mail:</label><br>
+                                <input type="text" name="emailC" id="username" value="{{ emailCl }}" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Apelido:</label><br>
+                                <input type="text" name="apelidoC" id="username" value="{{ apelidoCl }}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Observação:</label><br>
+                                <textarea name="obsC" id="username" class="form-control" rows="5" cols="30">{{ obsCl }}</textarea>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-outline-success" value="Cadastrar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
